@@ -1,0 +1,399 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --gradient-primary: linear-gradient(180deg, #635bff, #ffffff00);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-inter-tight: var(--font-inter-tight);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  font-family: var(--font-inter-tight), Arial, Helvetica, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.vector1 {
+  position: absolute;
+  top: -105.7px;
+  right: -140px;
+  opacity: 1;
+  z-index: 0;
+}
+
+.vector2 {
+  position: absolute;
+  width: 527.0000069792695px;
+  height: 533.0000070587299px;
+  top: -140.46px;
+  left: -238.02px;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* Navbar Styles */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.navbar {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+  opacity: 1;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  opacity: 1;
+}
+
+.navbar-logo {
+  flex-shrink: 0;
+  opacity: 1;
+}
+
+.navbar-logo svg {
+  image-rendering: pixelated;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  opacity: 1;
+}
+
+.navbar-link {
+  font-family: "Helvetica Now Display Medium", "Helvetica Now Display Medium Placeholder", sans-serif;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  line-height: 2em;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-link:hover {
+  opacity: 0.8;
+}
+
+.navbar-link.scrolled {
+  color: rgb(0, 0, 0);
+}
+
+.navbar-container.scrolled .navbar {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar-cta-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0px -3px 1px 0px rgba(0, 0, 0, 0.25) inset;
+  padding: 8px 24px;
+  text-decoration: none;
+  opacity: 1;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.navbar-cta-button:hover {
+  transform: translateY(1px);
+}
+                   
+.navbar-cta-text {
+  font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: rgb(99, 91, 255);
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-cta-bg-1,
+.navbar-cta-bg-2 {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  filter: blur(18.3px);
+  transform: rotate(-28deg);
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+}
+
+.navbar-cta-bg-1 {
+  top: -10px;
+  left: -10px;
+}
+
+.navbar-cta-bg-2 {
+  bottom: -10px;
+  right: -10px;
+}
+
+/* Hero Section Styles */
+.framer-1ja8tyq {
+  position: relative;
+  z-index: 10;
+}
+
+.framer-1ls4jaz {
+  position: relative;
+  z-index: 20;
+}
+
+/* Hero Title Container */
+.hero-title-container {
+  margin-bottom: 1rem;
+}
+
+/* Hero Subtitle Container */
+.hero-subtitle-container {
+  margin-bottom: 2rem;
+}
+
+/* CTA Container */
+.cta-container {
+  margin-bottom: 2rem;
+}
+
+/* Monitoring Badge Styles */
+.monitoring-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 8px 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.badge-bg {
+  background: linear-gradient(90deg, rgba(99, 91, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 50px;
+}
+
+.badge-text {
+  position: relative;
+  z-index: 2;
+  font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+.badge-accent {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+}
+
+/* Hero Title Styles */
+.hero-title {
+  font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: white;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero Subtitle Styles */
+.hero-subtitle {
+  font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin: 0;
+}
+
+/* Hero CTA Button Styles */
+.hero-cta-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(99, 91, 255);
+  border: 2px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0px -3px 0px 0px rgba(0, 0, 0, 0.25) inset;
+  padding: 14px 48px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.hero-cta-button:hover {
+  transform: translateY(1px);
+  box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.cta-text-container {
+  position: relative;
+  z-index: 3;
+}
+
+.cta-text {
+  font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+.cta-bg-blur-1,
+.cta-bg-blur-2 {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  filter: blur(18.3px);
+  transform: rotate(-28deg);
+  opacity: 0.1;
+  width: 20px;
+  height: 20px;
+}
+
+.cta-bg-blur-1 {
+  top: -10px;
+  left: -10px;
+}
+
+.cta-bg-blur-2 {
+  bottom: -10px;
+  right: -10px;
+}
+
+/* Shield Image Styles */
+.shield-image {
+  filter: drop-shadow(0 0 20px rgba(99, 91, 255, 0.3));
+  transition: all 0.3s ease;
+  max-width: 100%;
+  height: auto;
+}
+
+.shield-image:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 30px rgba(99, 91, 255, 0.5));
+}
+
+/* Floating Service Cards */
+.floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(99, 91, 255, 0.2);
+  border-radius: 12px;
+  padding: 12px 20px;
+  box-shadow: 0 8px 32px rgba(99, 91, 255, 0.15);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.floating-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(99, 91, 255, 0.25);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-text {
+  font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(99, 91, 255);
+  margin: 0;
+  text-align: center;
+}
+
+/* Corporate Security Card Position */
+.corporate-security {
+  top: 10%;
+  right: -20%;
+  transform: rotate(-3deg);
+}
+
+/* Mobile Patrol Card Position */
+.mobile-patrol {
+  bottom: 20%;
+  left: -25%;
+  transform: rotate(-7deg);
+}
+
+/* Access Control Card Position */
+.access-control {
+  top: 50%;
+  left: -15%;
+  transform: translateY(-50%) rotate(4deg);
+}
+
+/* Responsive adjustments for floating cards */
+@media (max-width: 768px) {
+  .floating-card {
+    padding: 8px 16px;
+  }
+  
+  .card-text {
+    font-size: 16px;
+  }
+  
+  .corporate-security {
+    right: -15%;
+  }
+  
+  .mobile-patrol {
+    left: -20%;
+  }
+  
+  .access-control {
+    left: -10%;
+  }
+}
