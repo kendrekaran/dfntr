@@ -33,9 +33,9 @@ const FormSection = () => {
   };
 
   return (
-    <section id="form" className="py-16 md:py-32 px-[100px] bg-white relative overflow-hidden">
+    <section id="form" className="py-16 md:py-32 px-[100px] max-w-7xl mx-auto bg-white relative overflow-hidden">
       {/* Background Logo */}
-      <div className="absolute bottom-0 z-0 ">
+      <div className="absolute bottom-0 right-0 z-0 ">
         <img
           src="/back-logo.svg"
           alt="Background Logo"

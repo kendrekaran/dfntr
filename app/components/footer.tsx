@@ -40,8 +40,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className=" py-16 px-[100px]">
-      <div className=" mx-auto bg-gradient-to-b px-[32px] py-[40px] border-[1px] border-[#0000001A] from-[#635BFF50] to-[#635BFF00] rounded-[24px]">
+    <footer className=" py-16 px-[100px] ">
+      <div className="  bg-gradient-to-b px-[32px] py-[40px] max-w-7xl mx-auto border-[1px] border-[#0000001A] from-[#635BFF50] to-[#635BFF00] rounded-[24px]">
         {/* Main Footer Content */}
         <div className="flex flex-col lg:flex-row justify-between gap-12 mb-12">
           {/* Brand Section */}
