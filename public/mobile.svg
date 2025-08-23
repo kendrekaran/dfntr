@@ -1,0 +1,56 @@
+<svg width="376" height="250" viewBox="0 0 376 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_12_3)">
+<rect width="376" height="250" rx="12" fill="url(#paint0_linear_12_3)"/>
+<g style="mix-blend-mode:overlay">
+<path d="M188.5 -50V73C188.5 85.1503 178.65 95 166.5 95H-10" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<path d="M283.5 -22.5V145.5C283.5 157.65 293.35 167.5 305.5 167.5H472.5" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<path d="M187.5 357.5V189.5C187.5 177.35 177.65 167.5 165.5 167.5H-1.5" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="46.5" cy="125.5" r="3.5" fill="white" fill-opacity="0.1"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="0.5" cy="125.5" r="3.5" fill="white" fill-opacity="0.13"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="92.5" cy="125.5" r="3.5" fill="white" fill-opacity="0.2"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="138.5" cy="125.5" r="3.5" fill="white" fill-opacity="0.4"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="184.5" cy="125.5" r="3.5" fill="white" fill-opacity="0.5"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="230.5" cy="125.5" r="3.5" fill="white" fill-opacity="0.6"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="230.5" cy="161.5" r="3.5" fill="white" fill-opacity="0.6"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="230.5" cy="197.5" r="3.5" fill="white" fill-opacity="0.2"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="230.5" cy="233.5" r="3.5" fill="white" fill-opacity="0.2"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="230.5" cy="79.5" r="3.5" fill="white" fill-opacity="0.8"/>
+</g>
+<g style="mix-blend-mode:overlay">
+<circle cx="230.5" cy="33.5" r="3.5" fill="white"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_12_3" x1="188" y1="0" x2="188" y2="250" gradientUnits="userSpaceOnUse">
+<stop stop-color="#635BFF"/>
+<stop offset="1" stop-color="#635BFF" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_12_3">
+<rect width="376" height="250" rx="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>

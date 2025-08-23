@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const ServicesSection = () => {
   const services = [
@@ -6,85 +7,89 @@ const ServicesSection = () => {
       id: 1,
       title: "Mobile Patrol",
       description: "Proactive, mobile security patrols monitoring your premises and deterring criminal activity 24/7.",
-      image: "https://framerusercontent.com/images/CQPn0TRenkpyT1Wk1msAV74LU.png"
+      image: "/mobile.svg",
+      priority: true // First service gets priority loading
     },
     {
       id: 2,
       title: "Access Control",
       description: "Professional front desk security officers controlling building access and maintaining a safe environment.",
-      image: "https://framerusercontent.com/images/Q9o8nbBVdGWUcLy1ppeU46rpk.png"
+      image: "/access.svg",
+      priority: false
     },
     {
       id: 3,
       title: "Corporate Security",
       description: "Highly trained, certified, and uniformed officers providing visible deterrence and ensuring a safer environment.",
-      image: "https://framerusercontent.com/images/znWyPVNYZqBZeDAB16sJghCU.png"
+      image: "/corporate.svg",
+      priority: false
     },
     {
       id: 4,
       title: "Firewatch",
       description: "Our professionals conduct continuous patrols, identify fire hazards, etc. Ensure code compliance and 24/7 monitoring.",
-      image: "https://framerusercontent.com/images/wj36yTYvmcu6aS7lqKPJ5CVsVI.png"
+      image: "/firewatch.svg",
+      priority: false
     },
     {
       id: 5,
       title: "Concierge Services",
       description: "Blending hospitality and security, our officers manage visitor access, monitor systems to ensure a secure experience.",
-      image: "https://framerusercontent.com/images/z9gVOZdh14sulFyp6niGu5BwDY.png"
+      image: "/con.svg",
+      priority: false
     },
     {
       id: 6,
       title: "Unarmed Guards",
       description: "Our officers detect crime and ensure safety without weapons. Trained in conflict & emergency response.",
-      image: "https://framerusercontent.com/images/DVaPahBNU10sY8zClhwWAZILw.png"
+      image: "/unarmed.svg",
+      priority: false
     }
   ];
 
   return (
-    <section id="services" className="py-16 md:py-32 px-[100px] ">
+    <section id="services" className="py-16 px-4 sm:px-8 md:py-24 lg:px-16">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-[48px] font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold text-gray-900 mb-4 md:mb-6">
             We Don&apos;t Just Detect, <span className="text-indigo-600">We Defend</span>
           </h2>
-          <div className="max-w-[637px] mx-auto">
-            <p className="text-[20px] text-gray-700 mb-4">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-700">
               At dfndr, we put care, professionalism, and reliability at the center of every security solution.
             </p>
           </div>
         </div>
-
-        {/* Services Grid */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.id}
-              className="bg-[#F6F6F6] rounded-2xl pt-[10px] px-[12px] pb-[32px] gap-[8px] overflow-hidden border-[#0000001A] border-[1px] transition-all duration-300 transform hover:-translate-y-2 group"
+              className="bg-gray-100 rounded-2xl overflow-hidden border border-transparent hover:shadow-lg transition-shadow duration-300"
             >
-              {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
-                <img
+              <div className="relative h-60 overflow-hidden">
+                <Image
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover rounded-[12px] transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-all duration-300 hover:scale-105 animate-fade-in"
+                  priority={service.priority}
+                  loading={service.priority ? "eager" : "lazy"}
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                  quality={85}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
-              {/* Content */}
-              <div className="flex flex-col gap-[8px] px-[16px]">
-                <h3 className="text-[24px] font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 text-[20px] tracking-[1%] leading-[26px]">
+                <p className="text-base text-gray-600 leading-relaxed">
                   {service.description}
                 </p>
               </div>
-
-              {/* Hover Effect Border */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-indigo-200 rounded-2xl transition-all duration-300" />
             </div>
           ))}
         </div>

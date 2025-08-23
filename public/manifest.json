@@ -1,0 +1,20 @@
+{
+  "name": "DFNDR Security",
+  "short_name": "DFNDR",
+  "description": "Professional security services including security officers, firewatch, concierge, mobile patrols, and corporate security throughout Seattle, Bellevue, Tacoma, and Everett.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#8B5CF6",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "security", "professional-services"],
+  "lang": "en-US"
+}

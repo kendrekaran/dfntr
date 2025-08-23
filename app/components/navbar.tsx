@@ -1,9 +1,11 @@
 "use client";
+import { PhoneIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,12 +23,16 @@ export default function Navbar() {
     };
   }, []);
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
-    <div className={`navbar-container max-w-screen rounded-b-[12px] mx-auto ${isScrolled ? 'scrolled' : ''}`}>
-      <nav className="navbar ">
-        <div className="navbar-content max-w-[1240px] mx-auto">
+    <div className={`fixed top-0 left-0 right-0 z-[1000] max-w-screen rounded-b-[12px] overflow-x-hidden mx-auto ${isScrolled ? 'border-b border-black/5' : ''}`}>
+      <nav className={`backdrop-blur-[10px] bg-transparent border-0 h-full opacity-100 ${isScrolled ? 'border-b border-black/5' : ''}`}>
+        <div className="flex items-center justify-between max-w-[1240px] mx-auto px-6 py-3">
           {/* Logo */}
-          <Link href="/" className="navbar-logo">
+          <Link href="/" className="flex-shrink-0">
             <svg width="103" height="24" viewBox="0 0 102.857 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M 87.836 9.151 L 87.836 0.536 L 91.269 0.536 L 91.269 22.789 L 87.836 22.789 L 87.836 20.501 C 86.543 22.302 84.688 23.202 82.273 23.202 C 80.091 23.202 78.226 22.397 76.678 20.786 C 75.13 19.175 74.357 17.194 74.357 14.841 C 74.357 12.489 75.13 10.507 76.678 8.896 C 78.226 7.285 80.089 6.48 82.273 6.48 C 84.69 6.48 86.543 7.37 87.836 9.151 Z M 79.221 18.496 C 80.175 19.45 81.373 19.927 82.814 19.927 C 84.254 19.927 85.452 19.45 86.405 18.496 C 87.359 17.521 87.836 16.302 87.836 14.841 C 87.836 13.379 87.359 12.17 86.405 11.217 C 85.452 10.242 84.254 9.754 82.814 9.754 C 81.372 9.754 80.175 10.242 79.221 11.217 C 78.267 12.17 77.791 13.378 77.791 14.841 C 77.791 16.281 78.267 17.5 79.221 18.496 Z" fill={isScrolled ? "#635BFF" : "white"}/>
               <path d="M 42.368 9.151 L 42.368 0.536 L 45.801 0.536 L 45.801 22.789 L 42.368 22.789 L 42.368 20.501 C 41.076 22.302 39.221 23.202 36.805 23.202 C 34.623 23.202 32.758 22.397 31.21 20.786 C 29.663 19.175 28.889 17.194 28.889 14.841 C 28.889 12.489 29.663 10.507 31.21 8.896 C 32.758 7.285 34.622 6.48 36.805 6.48 C 39.222 6.48 41.076 7.37 42.368 9.151 Z M 33.754 18.496 C 34.707 19.45 35.905 19.927 37.346 19.927 C 38.786 19.927 39.984 19.45 40.938 18.496 C 41.891 17.521 42.368 16.302 42.368 14.841 C 42.368 13.379 41.891 12.17 40.938 11.217 C 39.984 10.242 38.786 9.754 37.346 9.754 C 35.904 9.754 34.707 10.242 33.754 11.217 C 32.8 12.17 32.323 13.378 32.323 14.841 C 32.323 16.281 32.8 17.5 33.754 18.496 Z" fill={isScrolled ? "#635BFF" : "white"}/>
@@ -37,20 +43,95 @@ export default function Navbar() {
             </svg>
           </Link>
 
-          {/* Navigation Links */}
-          <div className="navbar-links">
-            <Link href="/#about" className={`navbar-link ${isScrolled ? 'scrolled' : ''}`}>About</Link>
-            <Link href="/#services" className={`navbar-link ${isScrolled ? 'scrolled' : ''}`}>Services</Link>
-            <Link href="/#location" className={`navbar-link ${isScrolled ? 'scrolled' : ''}`}>Locations</Link>
-            <Link href="/#values" className={`navbar-link ${isScrolled ? 'scrolled' : ''}`}>Our Values</Link>
+          {/* Desktop Navigation Links */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link
+              href="/#about"
+              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
+            >
+              About
+            </Link>
+            <Link
+              href="/#services"
+              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
+            >
+              Services
+            </Link>
+            <Link
+              href="/#location"
+              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
+            >
+              Locations
+            </Link>
+            <Link
+              href="/#values"
+              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
+            >
+              Our Values
+            </Link>
           </div>
 
-          {/* Call Button */}
-          <Link href="tel:253-523-3834" className="navbar-cta-button  ">
-            <span className="navbar-cta-text">253-523-3834</span>
-            <div className="navbar-cta-bg-1"></div>
-            <div className="navbar-cta-bg-2"></div>
+          {/* Call Button - Desktop */}
+          <Link
+            href="tel:253-523-3834"
+            className="hidden md:relative md:flex md:items-center md:justify-center bg-white border-2 border-black/5 rounded-[12px] shadow-[0px_-3px_1px_0px_rgba(0,0,0,0.25)_inset] px-6 py-2 no-underline overflow-hidden transition-transform duration-200 hover:translate-y-[1px]"
+          >
+            <span className="font-['Inter_Tight'] font-semibold text-[14px] leading-[1.2] text-[#635BFF] relative z-2">253-523-3834</span>
+            <div className="absolute bg-white blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 top-[-10px] left-[-10px]"></div>
+            <div className="absolute bg-white blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 bottom-[-10px] right-[-10px]"></div>
           </Link>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className={`md:hidden bg-none border-none cursor-pointer p-2 rounded-[6px] transition-colors duration-200 hover:bg-white/10 ${isScrolled ? 'hover:bg-black/5' : ''}`}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+          >
+            <div className="w-6 h-5 relative flex flex-col justify-between">
+              <PhoneIcon className="w-6 h-6 text-white" />
+            </div>
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-[20px] border-b border-black/10 transform transition-all duration-300 z-[999] ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
+          <div className="p-5 flex flex-col gap-4">
+            <Link
+              href="/#about"
+              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link
+              href="/#services"
+              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Services
+            </Link>
+            <Link
+              href="/#location"
+              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Locations
+            </Link>
+            <Link
+              href="/#values"
+              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Our Values
+            </Link>
+            <Link
+              href="tel:253-523-3834"
+              className="bg-[#635BFF] text-white no-underline font-['Inter_Tight'] font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center mt-2 transition-transform duration-200 hover:translate-y-[1px]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              253-523-3834
+            </Link>
+          </div>
         </div>
       </nav>
     </div>

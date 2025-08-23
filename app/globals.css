@@ -6,6 +6,20 @@
   --gradient-primary: linear-gradient(180deg, #635bff, #ffffff00);
 }
 
+/* Image loading animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-in-out forwards;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -46,120 +60,11 @@ body {
   z-index: 0;
 }
 
-/* Navbar Styles */
-.navbar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-.navbar {
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0);
-  border: 0px solid rgba(0, 0, 0, 0.1);
-  height: 100%;
-  opacity: 1;
-}
 
-.navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 24px;
-  opacity: 1;
-}
 
-.navbar-logo {
-  flex-shrink: 0;
-  opacity: 1;
-}
 
-.navbar-logo svg {
-  image-rendering: pixelated;
-}
 
-.navbar-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  opacity: 1;
-}
 
-.navbar-link {
-  font-family: "Helvetica Now Display Medium", "Helvetica Now Display Medium Placeholder", sans-serif;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-  line-height: 2em;
-  text-align: center;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.navbar-link:hover {
-  opacity: 0.8;
-}
-
-.navbar-link.scrolled {
-  color: rgb(0, 0, 0);
-}
-
-.navbar-container.scrolled .navbar {
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.navbar-cta-button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(255, 255, 255);
-  border: 2px solid rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-  box-shadow: 0px -3px 1px 0px rgba(0, 0, 0, 0.25) inset;
-  padding: 8px 24px;
-  text-decoration: none;
-  opacity: 1;
-  overflow: hidden;
-  transition: transform 0.2s ease;
-}
-
-.navbar-cta-button:hover {
-  transform: translateY(1px);
-}
-                   
-.navbar-cta-text {
-  font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  text-align: center;
-  color: rgb(99, 91, 255);
-  position: relative;
-  z-index: 2;
-}
-
-.navbar-cta-bg-1,
-.navbar-cta-bg-2 {
-  position: absolute;
-  background-color: rgb(255, 255, 255);
-  filter: blur(18.3px);
-  transform: rotate(-28deg);
-  opacity: 1;
-  width: 20px;
-  height: 20px;
-}
-
-.navbar-cta-bg-1 {
-  top: -10px;
-  left: -10px;
-}
-
-.navbar-cta-bg-2 {
-  bottom: -10px;
-  right: -10px;
-}
 
 /* Hero Section Styles */
 .framer-1ja8tyq {
@@ -196,7 +101,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50px;
-  padding: 8px 20px;
+  padding: 4px 20px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   overflow: hidden;
@@ -280,11 +185,23 @@ body {
 .cta-text {
   font-family: "Inter Tight", "Inter Tight Placeholder", sans-serif;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.01em;
   text-align: center;
   color: rgb(255, 255, 255);
   margin: 0;
+}
+
+@media (min-width: 640px) {
+  .cta-text {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cta-text {
+    font-size: 18px;
+  }
 }
 
 .cta-bg-blur-1,
@@ -308,18 +225,13 @@ body {
   right: -10px;
 }
 
-/* Shield Image Styles */
+
 .shield-image {
-  filter: drop-shadow(0 0 20px rgba(99, 91, 255, 0.3));
-  transition: all 0.3s ease;
   max-width: 100%;
   height: auto;
 }
 
-.shield-image:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 30px rgba(99, 91, 255, 0.5));
-}
+
 
 /* Floating Service Cards */
 .floating-card {
@@ -395,5 +307,65 @@ body {
   
   .access-control {
     left: -10%;
+  }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+
+
+  /* Hero Section Mobile Adjustments */
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .hero-cta-button {
+    padding: 12px 32px;
+    font-size: 16px;
+  }
+
+  .monitoring-badge {
+    margin-bottom: 0.5rem;
+  }
+
+  .badge-text {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+
+  .badge-accent {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Shield image adjustments */
+  .shield-image {
+    max-width: 300px;
+    height: auto;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  /* Extra small mobile adjustments */
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+
+
+  .shield-image {
+    max-width: 250px;
   }
 }
