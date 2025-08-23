@@ -1,21 +1,26 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter_Tight } from "next/font/google";
 import "./globals.css";
+import PerformanceMonitor from "./components/performance-monitor";
+import ServiceWorkerRegistration from "./components/service-worker-registration";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"], // Reduced from 9 weights to 4 essential ones
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -74,9 +79,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          href="/api/fonts/inter-tight-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/api/fonts/inter-tight-500.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        {/* Preload critical images */}
+        <link rel="preload" href="/logo.svg" as="image" />
+        <link rel="preload" href="/shield.svg" as="image" />
+        {/* Service Worker */}
+        <link rel="serviceworker" href="/sw.js" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${interTight.variable} antialiased`}
       >
+        <PerformanceMonitor />
+        <ServiceWorkerRegistration />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

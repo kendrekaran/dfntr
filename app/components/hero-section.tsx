@@ -3,16 +3,19 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <div className="relative min-h-screen  bg-gradient-to-b from-[#635BFF] to-[#635BFF]/0 flex items-center justify-center overflow-hidden">
-      {/* Clouds Background */}
+    <div className="relative min-h-screen bg-gradient-to-b from-[#635BFF] to-[#635BFF]/0 flex items-center justify-center overflow-hidden">
+      {/* Clouds Background - Lazy load since it's decorative */}
       <div className="absolute inset-0 w-full h-full z-0">
         <Image
           src="/cloud.svg"
           alt="Cloud decoration"
-          width={1436}
-          height={957}
+          width={800}
+          height={600}
           className="w-full h-full object-cover opacity-60"
           style={{ mixBlendMode: 'soft-light' }}
+          loading="lazy"
+          priority={false}
+          sizes="100vw"
         />
       </div>
 
@@ -52,16 +55,17 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Shield Image with Floating Cards */}
+        {/* Shield Image with Floating Cards - Priority load since it's above the fold */}
         <div className="relative mt-8 sm:mt-12 lg:mt-16">
           <Image
             src="/shield.svg"
             alt="Security Shield"
-            width={450}
-            height={450}
-            className="shield-image w-[450px] h-auto"
+            width={300}
+            height={300}
+            className="shield-image w-[300px] h-auto sm:w-[350px] md:w-[400px] lg:w-[450px]"
+            priority={true}
+            sizes="(max-width: 640px) 300px, (max-width: 768px) 350px, (max-width: 1024px) 400px, 450px"
           />
-
         </div>
       </div>
     </div>
