@@ -47,25 +47,25 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <Link
               href="/#about"
-              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
+              className={` text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
             >
               About
             </Link>
             <Link
               href="/#services"
-              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
+              className={` text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
             >
               Services
             </Link>
             <Link
               href="/#location"
-              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
+              className={` text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
             >
               Locations
             </Link>
             <Link
               href="/#values"
-              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
+              className={` text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
             >
               Our Values
             </Link>
@@ -98,35 +98,35 @@ export default function Navbar() {
           <div className="p-5 flex flex-col gap-4">
             <Link
               href="/#about"
-              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
+              className="text-[#635BFF] no-underline  font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="/#services"
-              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
+              className="text-[#635BFF] no-underline  font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               href="/#location"
-              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
+              className="text-[#635BFF] no-underline  font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Locations
             </Link>
             <Link
               href="/#values"
-              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
+              className="text-[#635BFF] no-underline  font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Our Values
             </Link>
             <Link
               href="tel:253-523-3834"
-              className="bg-[#635BFF] text-white no-underline font-['Inter_Tight'] font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center mt-2 transition-transform duration-200 hover:translate-y-[1px]"
+              className="bg-[#635BFF] text-white no-underline  font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center mt-2 transition-transform duration-200 hover:translate-y-[1px]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               253-523-3834

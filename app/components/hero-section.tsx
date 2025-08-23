@@ -59,6 +59,7 @@ export default function Hero() {
             alt="Security Shield"
             width={450}
             height={450}
+            priority={true}
             className="shield-image w-[450px] h-auto"
           />
 
