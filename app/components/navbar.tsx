@@ -1,69 +1,45 @@
 "use client";
 import { PhoneIcon } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Throttled scroll handler for better performance
-  const handleScroll = useCallback(() => {
-    const scrollPosition = window.scrollY;
-    const heroHeight = window.innerHeight;
-    setIsScrolled(scrollPosition > heroHeight);
-  }, []);
-
   useEffect(() => {
-    let ticking = false;
-    
-    const throttledScrollHandler = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
+    const handleScroll = () => {
+      // Check if scroll position is past the hero section (viewport height)
+      const scrollPosition = window.scrollY;
+      const heroHeight = window.innerHeight;
+
+      setIsScrolled(scrollPosition > heroHeight);
     };
 
-    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', throttledScrollHandler);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [handleScroll]);
-
-  const toggleMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen(prev => !prev);
   }, []);
 
-  // Memoize the scroll-dependent classes to prevent unnecessary re-renders
-  const navbarClasses = useMemo(() => {
-    return `fixed top-0 left-0 right-0 z-[1000] max-w-screen rounded-b-[12px] overflow-x-hidden mx-auto ${isScrolled ? 'border-b border-black/5' : ''}`;
-  }, [isScrolled]);
-
-  const navClasses = useMemo(() => {
-    return `backdrop-blur-[10px] bg-transparent border-0 h-full opacity-100 ${isScrolled ? 'border-b border-black/5' : ''}`;
-  }, [isScrolled]);
-
-  const logoColor = isScrolled ? "#635BFF" : "white";
-  const textColor = isScrolled ? 'text-black' : 'text-white';
-  const hoverBg = isScrolled ? 'hover:bg-black/5' : 'hover:bg-white/10';
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
-    <div className={navbarClasses}>
-      <nav className={navClasses}>
+    <div className={`fixed top-0 left-0 right-0 z-[1000] max-w-screen rounded-b-[12px] overflow-x-hidden mx-auto ${isScrolled ? 'border-b border-black/5' : ''}`}>
+      <nav className={`backdrop-blur-[10px] bg-transparent border-0 h-full opacity-100 ${isScrolled ? 'border-b border-black/5' : ''}`}>
         <div className="flex items-center justify-between max-w-[1240px] mx-auto px-6 py-3">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <svg width="103" height="24" viewBox="0 0 102.857 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 87.836 9.151 L 87.836 0.536 L 91.269 0.536 L 91.269 22.789 L 87.836 22.789 L 87.836 20.501 C 86.543 22.302 84.688 23.202 82.273 23.202 C 80.091 23.202 78.226 22.397 76.678 20.786 C 75.13 19.175 74.357 17.194 74.357 14.841 C 74.357 12.489 75.13 10.507 76.678 8.896 C 78.226 7.285 80.089 6.48 82.273 6.48 C 84.69 6.48 86.543 7.37 87.836 9.151 Z M 79.221 18.496 C 80.175 19.45 81.373 19.927 82.814 19.927 C 84.254 19.927 85.452 19.45 86.405 18.496 C 87.359 17.521 87.836 16.302 87.836 14.841 C 87.836 13.379 87.359 12.17 86.405 11.217 C 85.452 10.242 84.254 9.754 82.814 9.754 C 81.372 9.754 80.175 10.242 79.221 11.217 C 78.267 12.17 77.791 13.378 77.791 14.841 C 77.791 16.281 78.267 17.5 79.221 18.496 Z" fill={logoColor}/>
-              <path d="M 42.368 9.151 L 42.368 0.536 L 45.801 0.536 L 45.801 22.789 L 42.368 22.789 L 42.368 20.501 C 41.076 22.302 39.221 23.202 36.805 23.202 C 34.623 23.202 32.758 22.397 31.21 20.786 C 29.663 19.175 28.889 17.194 28.889 14.841 C 28.889 12.489 29.663 10.507 31.21 8.896 C 32.758 7.285 34.622 6.48 36.805 6.48 C 39.222 6.48 41.076 7.37 42.368 9.151 Z M 33.754 18.496 C 34.707 19.45 35.905 19.927 37.346 19.927 C 38.786 19.927 39.984 19.45 40.938 18.496 C 41.891 17.521 42.368 16.302 42.368 14.841 C 42.368 13.379 41.891 12.17 40.938 11.217 C 39.984 10.242 38.786 9.754 37.346 9.754 C 35.904 9.754 34.707 10.242 33.754 11.217 C 32.8 12.17 32.323 13.378 32.323 14.841 C 32.323 16.281 32.8 17.5 33.754 18.496 Z" fill={logoColor}/>
-              <path d="M 97.33 6.894 L 97.33 9.564 C 98.2 7.593 99.832 6.607 102.226 6.607 L 102.226 10.313 L 101.807 10.313 L 101.806 10.313 C 100.684 10.316 99.679 10.638 98.792 11.28 C 97.817 11.98 97.33 13.145 97.33 14.777 L 97.33 22.788 L 93.896 22.788 L 93.896 6.894 Z" fill={logoColor}/>
-              <path d="M 66.507 6.48 C 68.351 6.48 69.829 7.069 70.941 8.245 C 72.054 9.422 72.61 11.016 72.61 13.029 L 72.61 22.788 L 69.178 22.788 L 69.178 13.378 C 69.178 12.191 68.86 11.28 68.224 10.644 C 67.588 10.008 66.719 9.69 65.617 9.69 C 64.367 9.69 63.381 10.077 62.66 10.85 C 61.939 11.623 61.579 12.763 61.579 14.267 L 61.579 22.787 L 58.147 22.787 L 58.147 6.894 L 61.579 6.894 L 61.579 8.928 C 62.64 7.296 64.282 6.48 66.507 6.48 Z" fill={logoColor}/>
-              <path d="M 53.225 6.894 L 53.225 5.169 C 53.225 4.42 53.838 3.808 54.587 3.808 L 56.977 3.808 L 56.977 0.536 L 54.535 0.536 C 51.926 0.536 49.793 2.67 49.793 5.278 L 49.793 6.894 L 48.585 6.894 L 47.377 6.894 L 47.377 10.199 L 49.793 10.199 L 49.793 22.788 L 53.227 22.788 L 53.227 10.199 L 56.978 10.199 L 56.978 6.894 Z" fill={logoColor}/>
-              <path d="M 12.202 23.181 L 12.175 23.194 L 12.172 23.197 L 12.169 23.199 L 12.155 23.205 C 11.993 23.279 11.822 23.317 11.653 23.323 L 11.648 23.323 L 11.625 23.323 L 11.612 23.323 L 11.598 23.323 L 11.575 23.323 L 11.57 23.323 C 11.401 23.317 11.23 23.279 11.068 23.205 L 11.054 23.199 L 11.051 23.197 L 11.048 23.194 L 11.021 23.181 C 10.087 22.709 9.203 22.168 8.374 21.567 C 7.528 20.954 6.738 20.28 6.011 19.553 C 4.213 17.755 2.76 15.598 1.764 13.195 C 0.807 10.884 0.279 8.359 0.279 5.717 C 0.279 5.655 0.283 5.473 0.291 5.18 C 0.296 4.963 0.304 4.781 0.312 4.637 C 0.335 4.185 0.585 3.797 0.947 3.58 C 1.803 3.024 2.698 2.538 3.625 2.124 C 4.582 1.697 5.561 1.35 6.55 1.085 C 8.151 0.656 9.817 0.431 11.506 0.419 C 13.118 0.409 14.743 0.6 16.344 1.001 C 16.835 1.085 17.256 1.444 17.393 1.957 C 17.551 2.548 17.675 3.17 17.759 3.819 C 17.844 4.463 17.887 5.097 17.887 5.718 C 17.887 6.108 17.872 6.496 17.841 6.878 C 19.35 7.597 20.713 8.563 21.873 9.722 C 21.945 9.795 22.007 9.874 22.06 9.959 C 22.251 10.262 22.319 10.643 22.215 11.015 C 21.761 12.633 21.101 14.17 20.263 15.598 C 19.408 17.056 18.381 18.385 17.211 19.555 C 16.485 20.281 15.695 20.955 14.848 21.568 C 14.021 22.167 13.136 22.708 12.202 23.181 Z M 17.365 9.576 C 17.206 10.152 17.012 10.714 16.786 11.261 C 16.047 13.046 14.969 14.645 13.637 15.977 C 13.491 16.123 13.294 16.308 13.045 16.529 C 12.862 16.694 12.662 16.862 12.448 17.033 L 12.447 17.034 L 12.446 17.036 C 12.37 17.098 12.29 17.151 12.204 17.195 L 12.178 17.208 L 12.175 17.209 L 12.149 17.222 C 11.994 17.292 11.83 17.33 11.665 17.336 L 11.661 17.336 L 11.633 17.338 L 11.629 17.338 L 11.61 17.338 L 11.591 17.338 L 11.588 17.338 L 11.56 17.336 L 11.556 17.336 C 11.391 17.33 11.227 17.292 11.072 17.222 L 11.046 17.209 L 11.043 17.208 L 11.017 17.195 C 10.931 17.151 10.849 17.098 10.774 17.036 L 10.773 17.034 C 10.559 16.863 10.359 16.695 10.175 16.53 C 9.928 16.308 9.731 16.124 9.584 15.977 C 8.504 14.898 7.591 13.641 6.889 12.252 C 6.206 10.9 5.728 9.429 5.495 7.88 C 5.402 7.246 5.78 6.651 6.365 6.449 C 7.177 6.134 8.03 5.89 8.913 5.723 C 9.798 5.557 10.7 5.469 11.609 5.469 C 12.866 5.469 14.087 5.63 15.254 5.933 C 15.255 5.861 15.256 5.787 15.256 5.715 C 15.256 5.163 15.222 4.643 15.159 4.155 C 15.125 3.899 15.082 3.641 15.031 3.384 C 13.865 3.143 12.687 3.029 11.513 3.036 C 10.071 3.045 8.629 3.243 7.225 3.619 C 6.349 3.854 5.502 4.154 4.691 4.515 C 4.08 4.788 3.484 5.098 2.906 5.443 L 2.906 5.716 C 2.906 8.019 3.361 10.208 4.186 12.198 C 5.04 14.262 6.3 16.126 7.868 17.694 C 8.508 18.334 9.19 18.917 9.912 19.441 C 10.458 19.836 11.025 20.2 11.61 20.526 C 12.195 20.2 12.762 19.836 13.308 19.441 C 14.03 18.917 14.713 18.334 15.353 17.694 C 16.382 16.665 17.276 15.515 18.003 14.271 C 18.593 13.265 19.083 12.189 19.457 11.057 C 18.817 10.49 18.115 9.993 17.365 9.576 Z M 8.306 8.56 C 8.521 9.441 8.835 10.281 9.234 11.069 C 9.803 12.196 10.553 13.224 11.447 14.118 C 11.506 14.177 11.561 14.231 11.613 14.283 C 11.665 14.231 11.72 14.177 11.779 14.118 C 12.879 13.017 13.764 11.709 14.362 10.264 C 14.59 9.717 14.776 9.147 14.919 8.56 C 13.872 8.259 12.764 8.098 11.613 8.098 C 10.844 8.098 10.105 8.167 9.399 8.3 C 9.029 8.37 8.665 8.457 8.306 8.56 Z" fill={logoColor}/>
+              <path d="M 87.836 9.151 L 87.836 0.536 L 91.269 0.536 L 91.269 22.789 L 87.836 22.789 L 87.836 20.501 C 86.543 22.302 84.688 23.202 82.273 23.202 C 80.091 23.202 78.226 22.397 76.678 20.786 C 75.13 19.175 74.357 17.194 74.357 14.841 C 74.357 12.489 75.13 10.507 76.678 8.896 C 78.226 7.285 80.089 6.48 82.273 6.48 C 84.69 6.48 86.543 7.37 87.836 9.151 Z M 79.221 18.496 C 80.175 19.45 81.373 19.927 82.814 19.927 C 84.254 19.927 85.452 19.45 86.405 18.496 C 87.359 17.521 87.836 16.302 87.836 14.841 C 87.836 13.379 87.359 12.17 86.405 11.217 C 85.452 10.242 84.254 9.754 82.814 9.754 C 81.372 9.754 80.175 10.242 79.221 11.217 C 78.267 12.17 77.791 13.378 77.791 14.841 C 77.791 16.281 78.267 17.5 79.221 18.496 Z" fill={isScrolled ? "#635BFF" : "white"}/>
+              <path d="M 42.368 9.151 L 42.368 0.536 L 45.801 0.536 L 45.801 22.789 L 42.368 22.789 L 42.368 20.501 C 41.076 22.302 39.221 23.202 36.805 23.202 C 34.623 23.202 32.758 22.397 31.21 20.786 C 29.663 19.175 28.889 17.194 28.889 14.841 C 28.889 12.489 29.663 10.507 31.21 8.896 C 32.758 7.285 34.622 6.48 36.805 6.48 C 39.222 6.48 41.076 7.37 42.368 9.151 Z M 33.754 18.496 C 34.707 19.45 35.905 19.927 37.346 19.927 C 38.786 19.927 39.984 19.45 40.938 18.496 C 41.891 17.521 42.368 16.302 42.368 14.841 C 42.368 13.379 41.891 12.17 40.938 11.217 C 39.984 10.242 38.786 9.754 37.346 9.754 C 35.904 9.754 34.707 10.242 33.754 11.217 C 32.8 12.17 32.323 13.378 32.323 14.841 C 32.323 16.281 32.8 17.5 33.754 18.496 Z" fill={isScrolled ? "#635BFF" : "white"}/>
+              <path d="M 97.33 6.894 L 97.33 9.564 C 98.2 7.593 99.832 6.607 102.226 6.607 L 102.226 10.313 L 101.807 10.313 L 101.806 10.313 C 100.684 10.316 99.679 10.638 98.792 11.28 C 97.817 11.98 97.33 13.145 97.33 14.777 L 97.33 22.788 L 93.896 22.788 L 93.896 6.894 Z" fill={isScrolled ? "#635BFF" : "white"}/>
+              <path d="M 66.507 6.48 C 68.351 6.48 69.829 7.069 70.941 8.245 C 72.054 9.422 72.61 11.016 72.61 13.029 L 72.61 22.788 L 69.178 22.788 L 69.178 13.378 C 69.178 12.191 68.86 11.28 68.224 10.644 C 67.588 10.008 66.719 9.69 65.617 9.69 C 64.367 9.69 63.381 10.077 62.66 10.85 C 61.939 11.623 61.579 12.763 61.579 14.267 L 61.579 22.787 L 58.147 22.787 L 58.147 6.894 L 61.579 6.894 L 61.579 8.928 C 62.64 7.296 64.282 6.48 66.507 6.48 Z" fill={isScrolled ? "#635BFF" : "white"}/>
+              <path d="M 53.225 6.894 L 53.225 5.169 C 53.225 4.42 53.838 3.808 54.587 3.808 L 56.977 3.808 L 56.977 0.536 L 54.535 0.536 C 51.926 0.536 49.793 2.67 49.793 5.278 L 49.793 6.894 L 48.585 6.894 L 47.377 6.894 L 47.377 10.199 L 49.793 10.199 L 49.793 22.788 L 53.227 22.788 L 53.227 10.199 L 56.978 10.199 L 56.978 6.894 Z" fill={isScrolled ? "#635BFF" : "white"}/>
+              <path d="M 12.202 23.181 L 12.175 23.194 L 12.172 23.197 L 12.169 23.199 L 12.155 23.205 C 11.993 23.279 11.822 23.317 11.653 23.323 L 11.648 23.323 L 11.625 23.323 L 11.612 23.323 L 11.598 23.323 L 11.575 23.323 L 11.57 23.323 C 11.401 23.317 11.23 23.279 11.068 23.205 L 11.054 23.199 L 11.051 23.197 L 11.048 23.194 L 11.021 23.181 C 10.087 22.709 9.203 22.168 8.374 21.567 C 7.528 20.954 6.738 20.28 6.011 19.553 C 4.213 17.755 2.76 15.598 1.764 13.195 C 0.807 10.884 0.279 8.359 0.279 5.717 C 0.279 5.655 0.283 5.473 0.291 5.18 C 0.296 4.963 0.304 4.781 0.312 4.637 C 0.335 4.185 0.585 3.797 0.947 3.58 C 1.803 3.024 2.698 2.538 3.625 2.124 C 4.582 1.697 5.561 1.35 6.55 1.085 C 8.151 0.656 9.817 0.431 11.506 0.419 C 13.118 0.409 14.743 0.6 16.344 1.001 C 16.835 1.085 17.256 1.444 17.393 1.957 C 17.551 2.548 17.675 3.17 17.759 3.819 C 17.844 4.463 17.887 5.097 17.887 5.718 C 17.887 6.108 17.872 6.496 17.841 6.878 C 19.35 7.597 20.713 8.563 21.873 9.722 C 21.945 9.795 22.007 9.874 22.06 9.959 C 22.251 10.262 22.319 10.643 22.215 11.015 C 21.761 12.633 21.101 14.17 20.263 15.598 C 19.408 17.056 18.381 18.385 17.211 19.555 C 16.485 20.281 15.695 20.955 14.848 21.568 C 14.021 22.167 13.136 22.708 12.202 23.181 Z M 17.365 9.576 C 17.206 10.152 17.012 10.714 16.786 11.261 C 16.047 13.046 14.969 14.645 13.637 15.977 C 13.491 16.123 13.294 16.308 13.045 16.529 C 12.862 16.694 12.662 16.862 12.448 17.033 L 12.447 17.034 L 12.446 17.036 C 12.37 17.098 12.29 17.151 12.204 17.195 L 12.178 17.208 L 12.175 17.209 L 12.149 17.222 C 11.994 17.292 11.83 17.33 11.665 17.336 L 11.661 17.336 L 11.633 17.338 L 11.629 17.338 L 11.61 17.338 L 11.591 17.338 L 11.588 17.338 L 11.56 17.336 L 11.556 17.336 C 11.391 17.33 11.227 17.292 11.072 17.222 L 11.046 17.209 L 11.043 17.208 L 11.017 17.195 C 10.931 17.151 10.849 17.098 10.774 17.036 L 10.773 17.034 C 10.559 16.863 10.359 16.695 10.175 16.53 C 9.928 16.308 9.731 16.124 9.584 15.977 C 8.504 14.898 7.591 13.641 6.889 12.252 C 6.206 10.9 5.728 9.429 5.495 7.88 C 5.402 7.246 5.78 6.651 6.365 6.449 C 7.177 6.134 8.03 5.89 8.913 5.723 C 9.798 5.557 10.7 5.469 11.609 5.469 C 12.866 5.469 14.087 5.63 15.254 5.933 C 15.255 5.861 15.256 5.787 15.256 5.715 C 15.256 5.163 15.222 4.643 15.159 4.155 C 15.125 3.899 15.082 3.641 15.031 3.384 C 13.865 3.143 12.687 3.029 11.513 3.036 C 10.071 3.045 8.629 3.243 7.225 3.619 C 6.349 3.854 5.502 4.154 4.691 4.515 C 4.08 4.788 3.484 5.098 2.906 5.443 L 2.906 5.716 C 2.906 8.019 3.361 10.208 4.186 12.198 C 5.04 14.262 6.3 16.126 7.868 17.694 C 8.508 18.334 9.19 18.917 9.912 19.441 C 10.458 19.836 11.025 20.2 11.61 20.526 C 12.195 20.2 12.762 19.836 13.308 19.441 C 14.03 18.917 14.713 18.334 15.353 17.694 C 16.382 16.665 17.276 15.515 18.003 14.271 C 18.593 13.265 19.083 12.189 19.457 11.057 C 18.817 10.49 18.115 9.993 17.365 9.576 Z M 8.306 8.56 C 8.521 9.441 8.835 10.281 9.234 11.069 C 9.803 12.196 10.553 13.224 11.447 14.118 C 11.506 14.177 11.561 14.231 11.613 14.283 C 11.665 14.231 11.72 14.177 11.779 14.118 C 12.879 13.017 13.764 11.709 14.362 10.264 C 14.59 9.717 14.776 9.147 14.919 8.56 C 13.872 8.259 12.764 8.098 11.613 8.098 C 10.844 8.098 10.105 8.167 9.399 8.3 C 9.029 8.37 8.665 8.457 8.306 8.56 Z" fill={isScrolled ? "#635BFF" : "white"}/>
             </svg>
           </Link>
 
@@ -71,25 +47,25 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             <Link
               href="/#about"
-              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${textColor}`}
+              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
             >
               About
             </Link>
             <Link
               href="/#services"
-              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${textColor}`}
+              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
             >
               Services
             </Link>
             <Link
               href="/#location"
-              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${textColor}`}
+              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
             >
               Locations
             </Link>
             <Link
               href="/#values"
-              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${textColor}`}
+              className={`font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline transition-opacity duration-200 hover:opacity-80 ${isScrolled ? 'text-black' : 'text-white'}`}
             >
               Our Values
             </Link>
@@ -107,7 +83,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className={`md:hidden bg-none border-none cursor-pointer p-2 rounded-[6px] transition-colors duration-200 ${hoverBg}`}
+            className={`md:hidden bg-none border-none cursor-pointer p-2 rounded-[6px] transition-colors duration-200 hover:bg-white/10 ${isScrolled ? 'hover:bg-black/5' : ''}`}
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
@@ -122,38 +98,38 @@ export default function Navbar() {
           <div className="p-5 flex flex-col gap-4">
             <Link
               href="/#about"
-              className="font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline text-black transition-opacity duration-200 hover:opacity-80"
+              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="/#services"
-              className="font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline text-black transition-opacity duration-200 hover:opacity-80"
+              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               href="/#location"
-              className="font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline text-black transition-opacity duration-200 hover:opacity-80"
+              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Locations
             </Link>
             <Link
               href="/#values"
-              className="font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline text-black transition-opacity duration-200 hover:opacity-80"
+              className="text-[#635BFF] no-underline font-['Inter_Tight'] font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Our Values
             </Link>
             <Link
               href="tel:253-523-3834"
-              className="font-['Helvetica_Now_Display_Medium'] text-[15px] leading-[2em] text-center no-underline text-black transition-opacity duration-200 hover:opacity-80"
+              className="bg-[#635BFF] text-white no-underline font-['Inter_Tight'] font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center mt-2 transition-transform duration-200 hover:translate-y-[1px]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Call 253-523-3834
+              253-523-3834
             </Link>
           </div>
         </div>
