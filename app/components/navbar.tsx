@@ -6,10 +6,14 @@ import { useState, useEffect } from 'react';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [, setIsClient] = useState(false);
 
   useEffect(() => {
+  
+    setIsClient(true);
+
     const handleScroll = () => {
-      // Check if scroll position is past the hero section (viewport height)
+    
       const scrollPosition = window.scrollY;
       const heroHeight = window.innerHeight;
 
@@ -17,6 +21,9 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
+
+  
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

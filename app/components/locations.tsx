@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const LocationsSection = () => {
   const locations = [
@@ -8,13 +9,15 @@ const LocationsSection = () => {
       name: "Seattle",
       image: "/seattle.svg",
       alt: "Seattle location",
-      priority: true // First image gets priority loading
+      link: "/seattle",
+      priority: true 
     },
     {
       id: 2,
       name: "Tacoma",
       image: "/tacoma.svg",
       alt: "Tacoma location",
+      link: "/tacoma",
       priority: false
     },
     {
@@ -22,6 +25,7 @@ const LocationsSection = () => {
       name: "Bellevue",
       image: "/bell.svg",
       alt: "Bellevue location",
+      link: "/bellevue",
       priority: false
     }
   ];
@@ -40,7 +44,7 @@ const LocationsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {locations.map((location) => (
-            <div key={location.id} className="group cursor-pointer">
+            <Link href={location.link} key={location.id} className="group cursor-pointer">
               <div className="relative rounded-2xl overflow-hidden">
                 <div className="aspect-[4/3]">
                   <Image
@@ -63,7 +67,7 @@ const LocationsSection = () => {
                   {location.name}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
