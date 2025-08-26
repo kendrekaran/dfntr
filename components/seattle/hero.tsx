@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 export default function HomePage() {
   return (
     <div className="min-h-screen overflow-hidden px-[100px] py-[80px] bg-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container max-w-7xl mx-auto px-4 py-16">
         <div className="flex  gap-12 items-start">
           {/* Left Content */}
           <div className="space-y-8 max-w-[610px]">

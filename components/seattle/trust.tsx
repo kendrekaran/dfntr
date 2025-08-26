@@ -25,7 +25,7 @@ const TrustSection = () => {
 
   return (
     <section id="trust" className="py-16 px-4 sm:px-8 md:py-24 lg:px-[100px]">
-      <div className=" mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 space-y-[6px]">
           <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold text-gray-900 mb-4 md:mb-6">
             Why Seattle Trusts Dfndr?

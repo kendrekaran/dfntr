@@ -101,10 +101,10 @@ const ServicesSection = () => {
                 />
               </div>
 
-              <h3 className="text-xl font-semibold text-gray-900 ">
+              <h3 className="text-[24px] font-semibold text-gray-900 ">
                 {service.title}
               </h3>
-              <p className="text-base text-gray-600 leading-relaxed">
+              <p className="text-[18px] text-gray-600 leading-relaxed">
                 {service.description}
               </p>
             </div>
