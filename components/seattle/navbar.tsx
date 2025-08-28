@@ -1,22 +1,16 @@
 "use client";
-import { PhoneIcon } from 'lucide-react';
+
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '../ui/button';
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [, setIsClient] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const [isScrolled] = useState(false);
 
   return (
     <div className={`fixed top-0 left-0 right-0 z-[1000] max-w-screen rounded-b-[12px] overflow-x-hidden mx-auto ${isScrolled ? 'border-b border-black/5' : ''}`}>
       <nav className={`backdrop-blur-[10px] bg-transparent border-0 h-full opacity-100 ${isScrolled ? 'border-b border-black/5' : ''}`}>
-        <div className="flex items-center justify-between max-w-[1240px] mx-auto px-6 py-3">
+        <div className="flex items-center justify-between max-w-[1240px] mx-auto px-3 sm:px-6 py-3">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <svg width="103" height="24" viewBox="0 0 102.857 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,63 +57,16 @@ export default function Navbar() {
             borderRadius: '12px',
             boxShadow: 'rgba(0, 0, 0, 0.25) 0px -3px 0px 0px inset',
             border: '2px solid rgba(0, 0, 0, 0.05)',
-            padding: '14px 28px',
-          }}  >
+
+          }}  
+          className="py-[8px] sm:py-[14px] sm:px-[28px] px-[14px]"
+          >
             Call Us Now
           </Button>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className={`md:hidden bg-none border-none cursor-pointer p-2 rounded-[6px] transition-colors duration-200 hover:bg-white/10 ${isScrolled ? 'hover:bg-black/5' : ''}`}
-            onClick={toggleMobileMenu}
-            aria-label="Toggle mobile menu"
-          >
-            <div className="w-6 h-5 relative flex flex-col justify-between">
-              <PhoneIcon className="w-6 h-6 text-white" />
-            </div>
-          </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-[20px] border-b border-black/10 transform transition-all duration-300 z-[999] ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-          <div className="p-5 flex flex-col gap-4">
-            <Link
-              href="/#about"
-              className="text-[#635BFF] no-underline  font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/#services"
-              className="text-[#635BFF] no-underline  font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/#location"
-              className="text-[#635BFF] no-underline  font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Locations
-            </Link>
-            <Link
-              href="/#values"
-              className="text-[#635BFF] no-underline  font-medium text-[18px] py-3 border-b border-[#635BFF]/10 transition-colors duration-200 hover:text-[#4a45c7]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Our Values
-            </Link>
-            <Link
-              href="tel:253-523-3834"
-              className="bg-[#635BFF] text-white no-underline  font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center mt-2 transition-transform duration-200 hover:translate-y-[1px]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              253-523-3834
-            </Link>
-          </div>
-        </div>
+     
       </nav>
     </div>
   );
