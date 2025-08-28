@@ -4,12 +4,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://dfndrsecurity.co'
 
   return [
+    // Main homepage
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
+
+    // City-specific pages (high priority for local SEO)
+    {
+      url: `${baseUrl}/seattle`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/bellevue`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/tacoma`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+
+    // Section anchors on homepage
     {
       url: `${baseUrl}/#about`,
       lastModified: new Date(),
@@ -33,6 +56,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
+    },
+
+    // Additional important pages (if they exist)
+    {
+      url: `${baseUrl}/#testimonials`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/#faq`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/#form`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
   ]
 }
