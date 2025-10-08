@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { data, error } = await resend.emails.send({
-      from: 'onboarding@resend.dev',
+      from: 'onboarding@dfndr.app',
       to: 'support@dfndr.app',
       subject: 'New Contact Form Submission from DFNDR Website',
       html: `
