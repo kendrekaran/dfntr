@@ -78,15 +78,27 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Call Button - Desktop */}
-          <Link
-            href="tel:253-523-3834"
-            className="hidden md:relative md:flex md:items-center md:justify-center bg-white border-2 border-black/5 rounded-[12px] shadow-[0px_-3px_1px_0px_rgba(0,0,0,0.25)_inset] px-6 py-2 no-underline overflow-hidden transition-transform duration-200 hover:translate-y-[1px]"
-          >
-            <span className="font-['Inter_Tight'] font-semibold text-[14px] leading-[1.2] text-[#635BFF] relative z-2">253-523-3834</span>
-            <div className="absolute bg-white blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 top-[-10px] left-[-10px]"></div>
-            <div className="absolute bg-white blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 bottom-[-10px] right-[-10px]"></div>
-          </Link>
+          {/* Login and Call Buttons - Desktop */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="https://dfndr.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`relative flex items-center justify-center border rounded-[8px] px-6 py-2 no-underline overflow-hidden transition-transform duration-200 hover:translate-y-[1px] ${isScrolled ? 'bg-[#635BFF] border-[#635BFF]' : 'bg-white border-black/20'}`}
+            >
+              <span className={`font-['Inter_Tight'] font-semibold text-[14px] leading-[1.2] relative z-2 ${isScrolled ? 'text-white' : 'text-[#635BFF]'}`}>Login</span>
+              <div className={`absolute blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 top-[-10px] left-[-10px] ${isScrolled ? 'bg-[#635BFF]' : 'bg-white'}`}></div>
+              <div className={`absolute blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 bottom-[-10px] right-[-10px] ${isScrolled ? 'bg-[#635BFF]' : 'bg-white'}`}></div>
+            </Link>
+            <Link
+              href="tel:253-523-3834"
+              className="relative flex items-center justify-center bg-white border border-black/5 rounded-[8px] px-6 py-2 no-underline overflow-hidden transition-transform duration-200 hover:translate-y-[1px]"
+            >
+              <span className="font-['Inter_Tight'] font-semibold text-[14px] leading-[1.2] text-[#635BFF] relative z-2">253-523-3834</span>
+              <div className="absolute bg-white blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 top-[-10px] left-[-10px]"></div>
+              <div className="absolute bg-white blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 bottom-[-10px] right-[-10px]"></div>
+            </Link>
+          </div>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -131,13 +143,24 @@ export default function Navbar() {
             >
               Our Values
             </Link>
-            <Link
-              href="tel:253-523-3834"
-              className="bg-[#635BFF] text-white no-underline  font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center mt-2 transition-transform duration-200 hover:translate-y-[1px]"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              253-523-3834
-            </Link>
+            <div className="flex flex-col gap-3 mt-2">
+              <Link
+                href="https://dfndr.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-[#635BFF] no-underline font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center transition-transform duration-200 hover:translate-y-[1px]"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Login
+              </Link>
+              <Link
+                href="tel:253-523-3834"
+                className="bg-[#635BFF] text-white no-underline font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center transition-transform duration-200 hover:translate-y-[1px]"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                253-523-3834
+              </Link>
+            </div>
           </div>
         </div>
       </nav>

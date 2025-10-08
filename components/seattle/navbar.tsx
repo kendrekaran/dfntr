@@ -52,14 +52,27 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Call Button - Desktop */}
-          <Link
-              href="tel:253-523-3834"
-              className="bg-[#635BFF] text-white no-underline  font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center mt-2 transition-transform duration-200 hover:translate-y-[1px]"
-              onClick={() => setIsMobileMenuOpen(false)}
+          {/* Login and Call Buttons - Desktop */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="https://dfndr.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex items-center justify-center bg-[#635BFF] border border-[#635BFF] rounded-[8px] px-6 py-2 no-underline overflow-hidden transition-transform duration-200 hover:translate-y-[1px]"
             >
-              253-523-3834
+              <span className="font-['Inter_Tight'] font-semibold text-[14px] leading-[1.2] text-white relative z-2">Login</span>
+              <div className="absolute bg-[#635BFF] blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 top-[-10px] left-[-10px]"></div>
+              <div className="absolute bg-[#635BFF] blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 bottom-[-10px] right-[-10px]"></div>
             </Link>
+            <Link
+              href="tel:253-523-3834"
+              className="relative flex items-center justify-center bg-white border border-black/20 rounded-[8px] px-6 py-2 no-underline overflow-hidden transition-transform duration-200 hover:translate-y-[1px]"
+            >
+              <span className="font-['Inter_Tight'] font-semibold text-[14px] leading-[1.2] text-[#635BFF] relative z-2">253-523-3834</span>
+              <div className="absolute bg-white blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 top-[-10px] left-[-10px]"></div>
+              <div className="absolute bg-white blur-[18.3px] rotate-[-28deg] opacity-1 w-5 h-5 bottom-[-10px] right-[-10px]"></div>
+            </Link>
+          </div>
 
         </div>
 
