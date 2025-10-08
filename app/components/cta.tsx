@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 const CTASection = () => {
   return (
@@ -32,13 +31,12 @@ const CTASection = () => {
             </div>
 
             <div className="flex justify-center lg:justify-start">
-              <Link
-                href="#form"
-                className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white font-semibold text-base md:text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
-                style={{ boxShadow: 'rgba(0, 0, 0, 0.25) 0px -3px 0px 0px inset' }}
-              >
-                Get Protected!
-              </Link>
+            <a
+              href="#form"
+              className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Get Protected!
+            </a>
             </div>
           </div>
         </div>

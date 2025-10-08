@@ -43,13 +43,12 @@ export default function Hero() {
 
         {/* CTA Button */}
         <div className="cta-container px-4 sm:px-8">
-          <a className="hero-cta-button" href="./#form">
-            <div className="cta-text-container">
-              <p className="cta-text text-sm sm:text-base md:text-lg">Get Protected!</p>
-            </div>
-            <div className="cta-bg-blur-1"></div>
-            <div className="cta-bg-blur-2"></div>
-          </a>
+        <a
+              href="#form"
+              className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
+            >
+              Get Protected!
+            </a>
         </div>
 
         {/* Shield Image with Floating Cards */}

@@ -211,7 +211,6 @@ const FormSection = () => {
                   submissionState === 'error' ? 'bg-red-600 text-white hover:bg-red-700' :
                   'bg-indigo-600 text-white hover:bg-indigo-700 hover:-translate-y-1'}
               `}
-              style={{ boxShadow: 'rgba(0, 0, 0, 0.25) 0px -3px 0px 0px inset' }}
             >
               {submissionState === 'loading' && (
                 <div className="flex items-center gap-2">

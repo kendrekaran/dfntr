@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 
 export default function BellevueHero() {
   return (
@@ -24,9 +23,9 @@ export default function BellevueHero() {
                 DFNDR Security provides trusted guard services across Bellevue protecting businesses, communities, and events. Our licensed, highly trained officers deliver reliable, modern security, whether you need armed/unarmed guards, mobile patrols, or concierge protection.
               </p>
 
-              <Button className="w-full sm:w-auto text-base md:text-lg lg:text-[18px] py-3 md:py-4 lg:py-[20px] px-8 md:px-12 lg:px-[48px]">
+              <button className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1">
                 Book Security Now
-              </Button>
+              </button>
             </div>
 
             {/* Testimonials */}
