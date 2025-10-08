@@ -6,7 +6,8 @@ const Footer = () => {
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Locations", href: "#location" },
-    { name: "Our Values", href: "#values" }
+    { name: "Our Values", href: "#values" },
+    { name: "Privacy Policy", href: "/privacy-policy" }
   ];
 
   const socialLinks = [

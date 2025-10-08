@@ -6,6 +6,7 @@ import { Button } from '../ui/button';
 
 export default function Navbar() {
   const [isScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className={`fixed top-0 left-0 right-0 z-[1000] max-w-screen rounded-b-[12px] overflow-x-hidden mx-auto ${isScrolled ? 'border-b border-black/5' : ''}`}>
@@ -52,17 +53,13 @@ export default function Navbar() {
           </div>
 
           {/* Call Button - Desktop */}
-          <Button style={{
-            backgroundColor: 'rgb(99, 91, 255)',
-            borderRadius: '12px',
-            boxShadow: 'rgba(0, 0, 0, 0.25) 0px -3px 0px 0px inset',
-            border: '2px solid rgba(0, 0, 0, 0.05)',
-
-          }}  
-          className="py-[8px] sm:py-[14px] sm:px-[28px] px-[14px]"
-          >
-            Call Us Now
-          </Button>
+          <Link
+              href="tel:253-523-3834"
+              className="bg-[#635BFF] text-white no-underline  font-semibold text-[16px] py-[14px] px-6 rounded-[12px] text-center mt-2 transition-transform duration-200 hover:translate-y-[1px]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              253-523-3834
+            </Link>
 
         </div>
 
