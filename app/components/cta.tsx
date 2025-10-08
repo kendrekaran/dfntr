@@ -23,7 +23,7 @@ const CTASection = () => {
           <div className="flex-1 lg:w-1/2 text-center lg:text-left">
             <div className="mb-8">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 leading-tight mb-6">
-                Our Commitment to <span className="text-indigo-600">Excellence</span>
+                Our Commitment to <span className="text-[#635BFF]">Excellence</span>
               </h2>
               <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                 At DFNDR, we are committed to delivering the highest standards of security through continuous innovation and unwavering dedication. Our team of experts works tirelessly to stay ahead of emerging threats, ensuring that our clients receive the most advanced and reliable security solutions available. We believe in building long-term partnerships based on trust, transparency, and exceptional service, allowing businesses to thrive in a secure environment.
@@ -33,7 +33,7 @@ const CTASection = () => {
             <div className="flex justify-center lg:justify-start">
             <a
               href="#form"
-              className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-8 py-3 bg-[#635BFF] text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
             >
               Get Protected!
             </a>

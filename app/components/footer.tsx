@@ -79,7 +79,7 @@ const Footer = () => {
                     <a
                     key={link.name}
                     href={link.href}
-                    className="text-gray-600 hover:text-indigo-600 font-medium transition-colors duration-200"
+                    className="text-gray-600 hover:text-[#635BFF] font-medium transition-colors duration-200"
                     >
                     {link.name}
                     </a>
@@ -100,7 +100,7 @@ const Footer = () => {
                 {/* Email */}
                 <a
                     href="mailto:support@dfndr.app"
-                    className="flex items-center font-medium gap-2 text-indigo-600 hover:text-indigo-700 transition-colors duration-200 text-sm sm:text-base"
+                    className="flex items-center font-medium gap-2 text-[#635BFF] hover:text-indigo-700 transition-colors duration-200 text-sm sm:text-base"
                 >
                     <Mail className="w-4 h-4" />
                     <span>support@dfndr.app</span>
@@ -109,7 +109,7 @@ const Footer = () => {
                 {/* Phone */}
                 <a
                     href="tel:253-523-3834"
-                    className="flex items-center font-medium gap-2 text-indigo-600 hover:text-indigo-700 transition-colors duration-200 text-sm sm:text-base"
+                    className="flex items-center font-medium gap-2 text-[#635BFF] hover:text-indigo-700 transition-colors duration-200 text-sm sm:text-base"
                 >
                     <Phone className="w-4 h-4" />
                     <span>253-523-3834</span>
@@ -131,7 +131,7 @@ const Footer = () => {
             {/* Terms Link */}
             <a
             href="#"
-            className="text-[#3B3B3B] font-medium hover:text-indigo-600 transition-colors duration-200 text-sm sm:text-base"
+            className="text-[#3B3B3B] font-medium hover:text-[#635BFF] transition-colors duration-200 text-sm sm:text-base"
             >
             Terms & Conditions
             </a>
@@ -144,7 +144,7 @@ const Footer = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 font-medium hover:text-indigo-600 transition-colors duration-200"
+                className="text-gray-400 font-medium hover:text-[#635BFF] transition-colors duration-200"
                 aria-label={social.name}
                 >
                 {social.icon}

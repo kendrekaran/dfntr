@@ -96,7 +96,7 @@ const ServicesSection = () => {
                   alt={service.title}
                   width={80}
                   height={80}
-                  className="text-indigo-600"
+                  className="text-[#635BFF]"
                   priority={service.priority}
                 />
               </div>

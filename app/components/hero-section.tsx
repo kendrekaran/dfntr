@@ -45,7 +45,7 @@ export default function Hero() {
         <div className="cta-container px-4 sm:px-8">
         <a
               href="#form"
-              className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-8 py-3 bg-[#635BFF] text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
             >
               Get Protected!
             </a>

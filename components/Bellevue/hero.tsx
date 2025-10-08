@@ -23,7 +23,7 @@ export default function BellevueHero() {
                 DFNDR Security provides trusted guard services across Bellevue protecting businesses, communities, and events. Our licensed, highly trained officers deliver reliable, modern security, whether you need armed/unarmed guards, mobile patrols, or concierge protection.
               </p>
 
-              <button className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1">
+              <button className="inline-flex items-center justify-center px-8 py-3 bg-[#635BFF] text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1">
                 Book Security Now
               </button>
             </div>
@@ -54,7 +54,7 @@ export default function BellevueHero() {
                 alt="Bellevue skyline and business district"
                 className="w-full h-64 sm:h-80 md:h-96 lg:w-[598px] lg:h-[648px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-blue-600/20"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#635BFF]/20 to-blue-600/20"></div>
             </div>
           </div>
         </div>

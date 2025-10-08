@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
           <p className="text-base md:text-lg lg:text-xl text-gray-600 mb-8">
             Last Modified: October 6th, 2025
           </p>
-          <div className="w-32 h-1 bg-indigo-600 mx-auto rounded-full"></div>
+          <div className="w-32 h-1 bg-[#635BFF] mx-auto rounded-full"></div>
         </div>
       </div>
 
@@ -56,7 +56,7 @@ const PrivacyPolicy = () => {
               <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                 If we discover that we have collected data from a child under 16 without verified parental
                 consent, we will delete it immediately. If you believe this may have occurred, please contact us
-                at <a href="mailto:support@dfndr.app" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">support@dfndr.app</a>.
+                at <a href="mailto:support@dfndr.app" className="text-[#635BFF] hover:text-indigo-700 transition-colors duration-200">support@dfndr.app</a>.
               </p>
             </section>
 
@@ -122,7 +122,7 @@ const PrivacyPolicy = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 lg:mb-8">Opt-Out of Tracking</h2>
               <p className="text-gray-700 leading-relaxed mb-4 text-base md:text-lg">
                 You can opt out of analytics tracking and cookie-based data collection at any time by adjusting
-                your browser settings or contacting <a href="mailto:support@dfndr.app" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">support@dfndr.app</a>.
+                your browser settings or contacting <a href="mailto:support@dfndr.app" className="text-[#635BFF] hover:text-indigo-700 transition-colors duration-200">support@dfndr.app</a>.
               </p>
               <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                 Some browsers may delete opt-out preferences periodically, so we recommend rechecking
@@ -176,7 +176,7 @@ const PrivacyPolicy = () => {
               <ul className="list-disc pl-6 mb-6 text-gray-700 space-y-3 text-base md:text-lg">
                 <li><strong>Marketing Communications:</strong> You may unsubscribe from promotional emails by clicking &quot;unsubscribe&quot; or contacting us.</li>
                 <li><strong>Cookies:</strong> Adjust your browser settings to manage or delete cookies.</li>
-                <li><strong>Access or Deletion Requests:</strong> You may request access to, correction of, or deletion of your personal information by emailing <a href="mailto:support@dfndr.app" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">support@dfndr.app</a>.</li>
+                <li><strong>Access or Deletion Requests:</strong> You may request access to, correction of, or deletion of your personal information by emailing <a href="mailto:support@dfndr.app" className="text-[#635BFF] hover:text-indigo-700 transition-colors duration-200">support@dfndr.app</a>.</li>
               </ul>
             </section>
 
@@ -205,7 +205,7 @@ const PrivacyPolicy = () => {
                 <li>The right to opt out of data sharing or targeted advertising.</li>
               </ul>
               <p className="text-gray-700 leading-relaxed text-base md:text-lg">
-                To exercise these rights, please contact <a href="mailto:support@dfndr.app" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200">support@dfndr.app</a>.
+                To exercise these rights, please contact <a href="mailto:support@dfndr.app" className="text-[#635BFF] hover:text-indigo-700 transition-colors duration-200">support@dfndr.app</a>.
               </p>
             </section>
 
@@ -229,9 +229,9 @@ const PrivacyPolicy = () => {
                 <div className="text-gray-700 space-y-3 text-base md:text-lg">
                   <p><strong className="text-gray-900">DFNDR Security</strong></p>
                   <p><strong className="text-gray-900">Seattle, Washington</strong></p>
-                  <p><a href="mailto:support@dfndr.app" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200 font-medium">support@dfndr.app</a></p>
-                  <p><a href="https://www.dfndrsecurity.us" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200 font-medium">www.dfndrsecurity.us</a></p>
-                  <p><a href="tel:253-523-3834" className="text-indigo-600 hover:text-indigo-700 transition-colors duration-200 font-medium">(253) 523-3834</a></p>
+                  <p><a href="mailto:support@dfndr.app" className="text-[#635BFF] hover:text-indigo-700 transition-colors duration-200 font-medium">support@dfndr.app</a></p>
+                  <p><a href="https://www.dfndrsecurity.us" className="text-[#635BFF] hover:text-indigo-700 transition-colors duration-200 font-medium">www.dfndrsecurity.us</a></p>
+                  <p><a href="tel:253-523-3834" className="text-[#635BFF] hover:text-indigo-700 transition-colors duration-200 font-medium">(253) 523-3834</a></p>
                 </div>
               </div>
             </section>

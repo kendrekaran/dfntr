@@ -35,7 +35,7 @@ const LocationsSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-3">
-            Our <span className="text-indigo-600">Service</span> Locations
+            Our <span className="text-[#635BFF]">Service</span> Locations
           </h2>
           <p className="text-lg md:text-xl text-gray-700">
             Discover where dfndr is making a difference.

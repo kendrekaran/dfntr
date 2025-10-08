@@ -52,7 +52,7 @@ const ServicesSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-[48px] font-bold text-gray-900 mb-4 md:mb-6">
-            We Don&apos;t Just Detect, <span className="text-indigo-600">We Defend</span>
+            We Don&apos;t Just Detect, <span className="text-[#635BFF]">We Defend</span>
           </h2>
           <div className="max-w-3xl mx-auto">
             <p className="text-lg md:text-xl text-gray-700">

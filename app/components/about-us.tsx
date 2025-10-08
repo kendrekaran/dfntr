@@ -9,7 +9,7 @@ const AboutUsSection = () => {
           <div className="flex flex-col gap-4">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 leading-tight">
               Revolutionizing security <br />
-              with <span className="text-indigo-600">technology & expertise.</span>
+              with <span className="text-[#635BFF]">technology & expertise.</span>
             </h2>
             <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto lg:mx-0">
               dfndr is redefining modern security by combining advanced technology with expert service. Built by security professionals and tech innovators, our mission is to deliver smart, reliable, and transparent protection that lets businesses stay focused on what matters most. We serve a wide range of industries — construction to healthcare, hospitality, and residential communities — with tailored solutions built for real-world demands.
@@ -19,7 +19,7 @@ const AboutUsSection = () => {
           <div className="flex justify-center lg:justify-start">
             <a
               href="#form"
-              className="inline-flex items-center justify-center px-8 py-3 bg-indigo-600 text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
+              className="inline-flex items-center justify-center px-8 py-3 bg-[#635BFF] text-white font-semibold text-lg rounded-xl shadow-lg hover:bg-indigo-700 transition-all duration-300 transform hover:-translate-y-1"
             >
               Get Protected!
             </a>
@@ -27,7 +27,7 @@ const AboutUsSection = () => {
 
           <div className="flex justify-center lg:justify-start gap-8 pt-4">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-indigo-600">
+              <div className="text-4xl md:text-5xl font-bold text-[#635BFF]">
                 4.9
               </div>
               <div className="text-sm font-medium text-gray-800 mt-1">
@@ -36,7 +36,7 @@ const AboutUsSection = () => {
             </div>
             <div className="w-px bg-gray-300"></div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-indigo-600">
+              <div className="text-4xl md:text-5xl font-bold text-[#635BFF]">
                 10+
               </div>
               <div className="text-sm font-medium text-gray-800 mt-1">

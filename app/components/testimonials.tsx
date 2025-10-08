@@ -24,7 +24,7 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
-            What <span className="text-indigo-600">Our Clients</span> Say
+            What <span className="text-[#635BFF]">Our Clients</span> Say
           </h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
             Hear from businesses that trust dfndr for their security needs.

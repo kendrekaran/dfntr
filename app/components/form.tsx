@@ -12,7 +12,7 @@ const FormSection = () => {
   });
 
   const [submissionState, setSubmissionState] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = React.useState('');
+  const [, setErrorMessage] = React.useState('');
   const buttonRef = React.useRef<HTMLButtonElement>(null);
 
   const resetForm = () => {
@@ -115,7 +115,7 @@ const FormSection = () => {
         <div className="mb-12">
           <h2 className="text-4xl md:text-[54px] font-semibold text-gray-900 leading-tight md:leading-[100%] tracking-tight md:tracking-[1%] mb-4">
             Get in Touch <br />
-            with <span className="text-indigo-600">DFNDR </span>Today!
+            with <span className="text-[#635BFF]">DFNDR </span>Today!
           </h2>
           <p className="text-lg md:text-[21px] text-black tracking-[1%] max-w-2xl mx-auto">
             Fill out the form below, and our team will reach out to you shortly
@@ -209,7 +209,7 @@ const FormSection = () => {
                 ${submissionState === 'loading' ? 'bg-indigo-500 text-white cursor-not-allowed' :
                   submissionState === 'success' ? 'bg-green-500 text-white' :
                   submissionState === 'error' ? 'bg-red-600 text-white hover:bg-red-700' :
-                  'bg-indigo-600 text-white hover:bg-indigo-700 hover:-translate-y-1'}
+                  'bg-[#635BFF] text-white hover:bg-indigo-700 hover:-translate-y-1'}
               `}
             >
               {submissionState === 'loading' && (
