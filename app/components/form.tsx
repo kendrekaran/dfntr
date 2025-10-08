@@ -242,11 +242,7 @@ const FormSection = () => {
               )}
             </button>
 
-            {submissionState === 'error' && (
-              <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-red-700 text-sm text-center">{errorMessage}</p>
-              </div>
-            )}
+           
           </form>
         </div>
       </div>
