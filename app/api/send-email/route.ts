@@ -15,7 +15,6 @@ export async function POST(request: NextRequest) {
   try {
     const body: FormData = await request.json();
 
-    // Validate required fields
     const { name, phone, email, company, location } = body;
     if (!name || !phone || !email || !company || !location) {
       return NextResponse.json(
@@ -26,7 +25,7 @@ export async function POST(request: NextRequest) {
 
     const { data, error } = await resend.emails.send({
       from: 'onboarding@dfndr.app',
-      to: 'support@dfndr.app',
+      to: 'dfndrleads@gmail.com',
       subject: 'New Contact Form Submission from DFNDR Website',
       html: `
         <h2>New Contact Form Submission</h2>
